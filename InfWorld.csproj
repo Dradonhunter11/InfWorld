@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\tModLoader.targets" />
+	<PropertyGroup>
+		<AssemblyName>InfWorld</AssemblyName>
+		<TargetFramework>net6.0</TargetFramework>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<LangVersion>latest</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+	</ItemGroup>
+	<ItemGroup>
+		<Publicize Include="tModLoader:Terraria.ModLoader.IO.WorldIO" />
+		<Publicize Include="tModLoader:Terraria.Graphics.Light.TileLightScanner._drawInvisibleWalls" />
+		<Publicize Include="tModLoader:Terraria.TileData" />
+		<Publicize Include="tModLoader:Terraria.Framing.wallFrameLookup" />
+		<Publicize Include="tModLoader:Terraria.Framing.lazureTileFrameNumberLookup" />
+		<Publicize Include="tModLoader:Terraria.Framing.phlebasTileFrameNumberLookup" />
+		<Publicize Include="tModLoader:Terraria.Framing.centerWallFrameLookup" />
+		<Publicize Include="tModLoader:Terraria.Main._lastPingMouseDownTime" />
+		<Publicize Include="tModLoader:Terraria.Main._lastPingMousePosition" />
+		<Publicize Include="tModLoader:Terraria.Main.UpdateMinimapAnchors" />
+		<Publicize Include="tModLoader:Terraria.Main._minimapTopRightAnchorOffsetTowardsLeft" />
+		<Publicize Include="tModLoader:Terraria.Main._minimapTopRightAnchorOffsetTowardsBottom" />
+	</ItemGroup>
+</Project>

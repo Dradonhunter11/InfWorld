@@ -1,0 +1,26 @@
+﻿// Old code, useful for reference, how to add a reference to an existing assembly essentially
+/*
+var flags = BindingFlags.NonPublic | BindingFlags.Static;
+var resolver = (IAssemblyResolver)typeof(Main).Assembly.GetType("Terraria.ModLoader.Core.AssemblyManager").GetField("cecilAssemblyResolver", flags).GetValue(null);
+
+AssemblyDefinition definition = AssemblyDefinition.ReadAssembly(typeof(Main).Assembly.ManifestModule.FullyQualifiedName, new ReaderParameters(ReadingMode.Immediate)
+{
+    AssemblyResolver = resolver
+});
+TypeInfo info = null;
+definition.MainModule.Types.Clear();
+foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
+{
+    Console.Write(type.Assembly.ManifestModule.FullyQualifiedName);
+    var def = new TypeDefinition(type.Namespace, type.AssemblyQualifiedName, TypeAttributes.Class);
+    Console.Write(def.BaseType.Name);
+    definitions.Add(def);
+}
+definition.MainModule.Types.AddRange(definitions);
+var asmnameref = new AssemblyNameReference("InfWorld", new Version(1, 0, 0, 0));
+definition.MainModule.AssemblyReferences.Add(asmnameref);
+foreach (var mainModuleAssemblyReference in definition.MainModule.AssemblyReferences)
+{
+    Console.WriteLine(mainModuleAssemblyReference.FullName);
+}
+definition.MainModule.Write(Environment.CurrentDirectory + "/tModLoaderPatched.exe");*/

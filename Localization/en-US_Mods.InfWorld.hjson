@@ -1,0 +1,15 @@
+Configs: {
+	WorldGenConfig: {
+		DisplayName: World Gen Config
+
+		EnableCaveWorldGenByDefault: {
+			Label: Generate cave in infinite world
+			Tooltip: Disable completely the cave world gen in infinite type of world
+		}
+
+		EnableWorldGenStructureByDefault: {
+			Label: Generate structure in infinite world
+			Tooltip: Disable completely the structure world gen in infinite type of world
+		}
+	}
+}
