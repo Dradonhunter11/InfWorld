@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfWorld", "InfWorld.csproj", "{59D8479B-F25F-4DBC-8008-97E58BCE55B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteWorldLibrary", "..\InfiniteWorldLibrary\InfiniteWorldLibrary.csproj", "{0797E450-67D6-42A6-9FE4-0B16C44D115D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfiniteWorldLibrary", "..\InfiniteWorldLibrary\InfiniteWorldLibrary.csproj", "{0797E450-67D6-42A6-9FE4-0B16C44D115D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorePatcher", "..\CorePatcher\CorePatcher.csproj", "{66F71557-DDBC-4BA7-91F6-70F3FA17299F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0797E450-67D6-42A6-9FE4-0B16C44D115D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0797E450-67D6-42A6-9FE4-0B16C44D115D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0797E450-67D6-42A6-9FE4-0B16C44D115D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66F71557-DDBC-4BA7-91F6-70F3FA17299F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66F71557-DDBC-4BA7-91F6-70F3FA17299F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66F71557-DDBC-4BA7-91F6-70F3FA17299F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66F71557-DDBC-4BA7-91F6-70F3FA17299F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

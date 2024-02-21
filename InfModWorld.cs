@@ -29,7 +29,7 @@ namespace InfWorld
         public override void Load()
         {
             InfWorld.Instance = (InfWorld)Mod;
-            CoreLoaderHandler.PatchAssembly();
+            // CoreLoaderHandler.PatchAssembly();
             Patching.Detours.Detours.Load();
         }
 

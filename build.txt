@@ -3,3 +3,4 @@ author = 64bit guy
 version = 0.1
 dllReferences=InfiniteWorldLibrary
 includePDB=true
+modReferences=CorePatcher

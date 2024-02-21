@@ -15,18 +15,6 @@ namespace InfWorld.CoreLoader
 {
     internal static partial class CoreLoaderHandler
     {
-        public static void PatchMainClass(TypeDefinition type, AssemblyDefinition terraria) {
-            var Context = new ILContext(type.Methods.FirstOrDefault(p => p.Name == "RunGame"));
-            var ILCursor = new ILCursor(Context);
-
-            /*ILCursor.EmitDelegate<Action>(() => {
-                Assembly.LoadFrom(Path.Combine(Environment.CurrentDirectory, "InfWorld.dll"));
-            });*/
-        }
-
-        static void random() {
-            Assembly.LoadFrom(Path.Combine(Environment.CurrentDirectory, "InfWorld.dll"));
-        }
 
         static void PatchInitializer(TypeDefinition type, AssemblyDefinition terraria)
         {

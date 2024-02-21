@@ -16,6 +16,9 @@
 		<PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\CorePatcher\CorePatcher.csproj" />
+	</ItemGroup>
+	<ItemGroup>
 		<Publicize Include="tModLoader:Terraria.ModLoader.IO.WorldIO" />
 		<Publicize Include="tModLoader:Terraria.Graphics.Light.TileLightScanner._drawInvisibleWalls" />
 		<Publicize Include="tModLoader:Terraria.TileData" />

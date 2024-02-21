@@ -15,7 +15,7 @@ namespace InfWorld.CoreLoader
         {
             var field = type.Fields.FirstOrDefault(p => p.Name == "_tileArray");
 
-            TypeDefinition definition = asm.MainModule.Types.First(p => p.Name.StartsWith("World"));
+            TypeDefinition definition = InfiniteWorldModSystem.InfiniteWorldLibraryDef.MainModule.Types.First(p => p.Name.StartsWith("World"));
             TypeReference reference = type.Module.ImportReference(definition);
 
 
