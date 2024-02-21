@@ -166,7 +166,7 @@ namespace InfWorld.Patching.Detours
             */
 
             bool result = false;
-            // if (i >= 0 && j >= 0 && i < Main.maxTilesX && j < Main.maxTilesY)
+            if (i >= 0 && j >= 0)
             {
                 Tile tile = StaticInstance.WorldInstance[i, j];
                 if (tile == null)

@@ -82,6 +82,7 @@ namespace InfWorld.CoreLoader
             // Method that inject reference to the assembly
             // InjectReference(a);
             PatchWorldGenClear(a.MainModule.Types.First(p => p.Name == "WorldGen"), a);
+            PatchTileFrame(a.MainModule.Types.First(p => p.Name == "WorldGen"), a);
             ModifyTileMapClearEverything(a.MainModule.Types.First(p => p.FullName == "Terraria.Tilemap"), a);
             ModifyCopyFrom(a.MainModule.Types.First(p => p.Name == "Tile"), a);
             // Change access level of the class TileIO

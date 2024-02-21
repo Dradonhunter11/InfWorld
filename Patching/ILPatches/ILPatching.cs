@@ -98,36 +98,22 @@ namespace InfWorld.Patching.ILPatches
             {
                 var cursor = new ILCursor(il);
                 int indexCursor = 0;
-                if (cursor.TryGotoNext(
-                        i => i.MatchLdsfld(typeof(Player), nameof(Player.tileTargetX)),
-                        i => i.MatchLdsfld(typeof(Main), nameof(Main.maxTilesX)),
-                        i => i.MatchLdcI4(5),
-                        i => i.MatchSub(),
-                        i => i.MatchBlt(out _)))
+                if (cursor.TryGotoNext(MoveType.Before,
+                        i => i.MatchCall(out _), 
+                        i => i.MatchLdarg0(),
+                        i => i.MatchLdfld(out _),
+                        i => i.MatchLdarg0(), 
+                        i => i.MatchLdfld(out _),
+                        i => i.MatchLdelemRef(),
+                        i => i.MatchLdfld(out _),
+                        i => i.MatchLdcI4(out _),
+                        i => i.MatchBle(out _)))
                 {
-                    indexCursor = cursor.Index;
-                    if (cursor.TryGotoNext(
-                            i => i.MatchLdsfld(out _),
-                            i => i.MatchLdsfld(out _),
-                            i => i.MatchLdcI4(out _),
-                            i => i.MatchSub(),
-                            i => i.MatchLdsfld(out _)))
+                    cursor.EmitDelegate<Action>(() =>
                     {
-                        var jumpPoint = cursor.Next;
-                        cursor.Index++;
-                        cursor.EmitDelegate<Action>(() =>
-                        {
-                            Player.tileTargetX = (int)(((float)Main.mouseX + Main.screenPosition.X) / 16f);
-                            Player.tileTargetY = (int)(((float)Main.mouseY + Main.screenPosition.Y) / 16f);
-                            Console.WriteLine(Player.tileTargetX);
-                            Console.WriteLine(Player.tileTargetY);
-                        });
-                        cursor.Index += 4;
-
-                        cursor.Index = indexCursor;
-                        cursor.Emit(OpCodes.Br, jumpPoint);
-
-                    }
+                        Player.tileTargetX = (int)(((float)Main.mouseX + Main.screenPosition.X) / 16f);
+                        Player.tileTargetY = (int)(((float)Main.mouseY + Main.screenPosition.Y) / 16f);
+                    });
                 }
             };
             return;
