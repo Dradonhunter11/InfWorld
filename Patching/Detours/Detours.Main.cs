@@ -22,6 +22,11 @@ namespace InfWorld.Patching.Detours
     {
         private static void OnClampScreenPositionToWorld(Terraria.On_Main.orig_ClampScreenPositionToWorld orig)
         {
+            Vector2 input = new Vector2(leftWorld + 656f, topWorld + 656f) - GameViewMatrix.Translation;
+            Vector2 input2 = new Vector2(float.PositiveInfinity, bottomWorld + 200 * 16 - (float)screenHeight / GameViewMatrix.Zoom.Y - 672f) - GameViewMatrix.Translation;
+            input = Utils.Round(input);
+            input2 = Utils.Round(input2);
+            screenPosition = Vector2.Clamp(screenPosition, input, input2);
             return;
         }
 

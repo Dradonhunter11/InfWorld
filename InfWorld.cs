@@ -35,6 +35,7 @@ using WorldGen = Terraria.WorldGen;
 using static Terraria.WorldGen;
 using TypeAttributes = Mono.Cecil.TypeAttributes;
 using System.Runtime.Loader;
+using CorePatcher;
 
 namespace InfWorld
 {

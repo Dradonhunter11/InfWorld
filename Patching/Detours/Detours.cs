@@ -60,7 +60,7 @@ namespace InfWorld.Patching.Detours
             Terraria.On_Collision.SolidTiles_int_int_int_int += (orig, startX, endX, startY, endY) => SolidTiles(startX, endX, startY, endY, false);
             Terraria.On_Collision.SolidTiles_int_int_int_int_bool += (orig, startX, endX, startY, endY, surfaces) => SolidTiles(startX, endX, startY, endY, surfaces);
             Terraria.On_WorldGen.clearWorld += OnClearWorld;
-            Terraria.On_Framing.WallFrame += WallFrame;
+            // Terraria.On_Framing.WallFrame += WallFrame;
             Terraria.On_WorldGen.UpdateWorld_UndergroundTile += (orig, i, i1, spawns, dist) => { };
             Terraria.On_WorldGen.UpdateWorld_OvergroundTile += (orig, i, i1, spawns, dist) => { };
             Terraria.On_WorldGen.PlantAlch += orig => { };
@@ -77,6 +77,8 @@ namespace InfWorld.Patching.Detours
                 orig();
 
             };
+
+            Terraria.On_Main.DrawToMap_Section += On_MainOnDrawToMap_Section;
             Terraria.On_Main.DoDraw += (orig, self, time) =>
             {
                 // Main.LocalPlayer.position = new Vector2(5000, 5000);
@@ -218,10 +220,7 @@ namespace InfWorld.Patching.Detours
             Terraria.On_Main.DrawMap += DrawMap;
             Terraria.On_Player.BordersMovement += OnBordersMovement;
             Terraria.On_WorldGen.clearWorld += orig =>
-            {
-                /*
-                Main.maxTilesY = short.MaxValue - 10;
-
+            {/*
                 int intendedMaxX = Math.Max(Main.maxTilesX + 1, 8401);
                 int intendedMaxY = Math.Max(Main.maxTilesY + 1, 2401);
 
@@ -234,6 +233,11 @@ namespace InfWorld.Patching.Detours
                 Main.Map = new WorldMap(intendedMaxX, intendedMaxY);*/
                 orig();
             };
+        }
+
+        private static void On_MainOnDrawToMap_Section(On_Main.orig_DrawToMap_Section orig, Main self, int secx, int secy)
+        {
+            return;
         }
 
         private static void On_TileLightScanner_ExportTo(On_TileLightScanner.orig_ExportTo orig, TileLightScanner self, Rectangle area, LightMap outputMap, TileLightScannerOptions options)

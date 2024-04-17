@@ -32,4 +32,7 @@
 		<Publicize Include="tModLoader:Terraria.Main._minimapTopRightAnchorOffsetTowardsLeft" />
 		<Publicize Include="tModLoader:Terraria.Main._minimapTopRightAnchorOffsetTowardsBottom" />
 	</ItemGroup>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="&quot;$(DevEnvDir)devenv&quot; &quot;$(SolutionDir)InfWorld.sln&quot; /Build $(configuration) /project &quot;$(SolutionDir)InfiniteWorldLibrary\InfiniteWorldLibrary.csproj&quot;" />
+	</Target>
 </Project>

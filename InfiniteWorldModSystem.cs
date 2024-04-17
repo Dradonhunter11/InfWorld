@@ -2,6 +2,7 @@
 using System;
 using Terraria.ModLoader;
 using System.Reflection;
+using CorePatcher;
 
 namespace InfWorld;
 
@@ -11,11 +12,13 @@ public class InfiniteWorldModSystem : ModSystem
 
     public override void Load()
     {
+
         CorePatcher.PatchLoader.RegisterPrePatchOperation(() =>
         {
             SavePhysicalAssembly("InfWorld.dll");
             SavePhysicalAssembly("lib/InfiniteWorldLibrary.dll");
             InfiniteWorldLibraryDef = LoadPhysicalAssemblyFromModules("InfiniteWorldLibrary.dll");
+            PatchLoader.AddDeps(InfiniteWorldLibraryDef);
         });
     }
 

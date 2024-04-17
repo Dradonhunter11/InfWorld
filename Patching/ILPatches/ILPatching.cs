@@ -352,7 +352,7 @@ namespace InfWorld.Patching.ILPatches
 
         public void Unload()
         {
-            throw new NotImplementedException();
+            
         }
     }
 
