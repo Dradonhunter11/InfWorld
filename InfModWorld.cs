@@ -25,6 +25,7 @@ namespace InfWorld
     class InfModWorld : ModSystem
     {
         public bool ThreadRunning = false;
+        public BaseChunkGenerator ChunkGenerator = new DefaultChunkGenerator();
 
         public override void Load()
         {
@@ -35,8 +36,12 @@ namespace InfWorld
 
         public override void OnWorldLoad()
         {
-            ChunkGeneratorV2.Create();
-            base.OnWorldLoad();
+            ChunkGenerator.Create();
+        }
+
+        public override void OnWorldUnload()
+        {
+            ChunkGenerator.Dispose();
         }
 
         public override void PreUpdateWorld()

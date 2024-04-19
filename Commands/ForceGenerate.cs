@@ -14,19 +14,20 @@ namespace InfWorld.Commands
     {
         public override void Action(CommandCaller caller, string input, string[] args)
         {
+            BaseChunkGenerator generator = ModContent.GetInstance<InfModWorld>().ChunkGenerator;
             if (args.Length == 0)
             {
                 var player = caller.Player;
 
                 var chunkPosition = player.position.X / 16 / Chunk.ChunkWidth;
                 var chunkId = (uint)Math.Floor(chunkPosition);
-                ChunkGeneratorV2.ForceGenerate(chunkId);
+                generator.ForceGenerate(chunkId);
             }
             else if (args.Length == 1)
             {
                 if (uint.TryParse(args[0], out var chunkId))
                 {
-                    ChunkGeneratorV2.ForceGenerate(chunkId);
+                    generator.ForceGenerate(chunkId);
                 }
             }
         }
